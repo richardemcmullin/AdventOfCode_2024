@@ -1,0 +1,10 @@
+{
+    // Format Java files on save
+    "editor.formatOnSave": true,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+}
