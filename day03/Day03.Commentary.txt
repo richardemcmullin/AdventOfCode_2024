@@ -1,0 +1,6 @@
+AI solved Day03 using some very powerful Regex.  Kudos to the AI.
+Unfortunately, many java coders are not very familiar with Regex making it difficult to maintain this solution.
+
+The non-Regex code was clean and readable, but duplicated a lot of code betwen part 1 and part 2.
+
+RM solution has a different style.
