@@ -1,0 +1,6 @@
+Day04 could benefit from the use of an enum for directions.
+
+Upon prompting, the AI generated an enum for the directions which was incorporated in the RM solution.
+
+The AI solution initially contained variables that were a bit short/cryptic.  
+When prompted to use more descriptive variables, the AI solution expanded the names.
