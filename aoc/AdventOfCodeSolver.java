@@ -9,8 +9,15 @@ public abstract class AdventOfCodeSolver {
 
     private void readInput() {
         try {
+            System.out.println("Paste your Advent of Code input and press Enter on a blank line to finish:");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            inputLines = reader.lines().toList();
+            inputLines = new java.util.ArrayList<>();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty())
+                    break;
+                inputLines.add(line);
+            }
         } catch (Exception e) {
             throw new RuntimeException("Error reading input", e);
         }

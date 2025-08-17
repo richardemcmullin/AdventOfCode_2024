@@ -8,3 +8,9 @@ printing the times for each part rounded to the nearest ms.
 RM Commentary
 Code is pretty good 
 - needed to move the parsing from the constuctor to the run method.
+
+Additional AI instructions
+
+modify the adventofcodesolver to stop reading input on a blank line
+
+prompt the user to paste input before reading
