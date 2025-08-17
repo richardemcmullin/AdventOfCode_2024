@@ -1,3 +1,6 @@
+Initial AI instructions
+-----------------------
+
 Create a base class AdventOfCodeSolver in java, 
 in the package aoc 
 that reads input from the console, 
@@ -5,11 +8,16 @@ parses the input using an abstract method,
 and solves part 1 and part 2 of the puzzle 
 printing the times for each part rounded to the nearest ms.
 
+
 RM Commentary
+-------------
 Code is pretty good 
 - needed to move the parsing from the constuctor to the run method.
+- not sure why some logic was implemented in the constructor?
+
 
 Additional AI instructions
+--------------------------
 
 modify the adventofcodesolver to stop reading input on a blank line
 

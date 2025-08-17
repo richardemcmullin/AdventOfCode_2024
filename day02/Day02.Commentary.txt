@@ -1,0 +1,9 @@
+RM Comments
+
+Sure the code works, but it is hardly maintainable code.  The logic is a bit tricky and 
+the variable names are just slightly off.
+
+Note that after solving part2, the AI did not refactor part1 appropriately to be in alignment.
+We can see how the AI will create additional technical debt.
+
+Recommend the solution Day02_RM.java in comparison.
