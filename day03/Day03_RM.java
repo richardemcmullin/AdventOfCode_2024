@@ -42,6 +42,8 @@ public class Day03_RM extends AdventOfCodeSolver {
                     MulInstruction mulInstruction = parseMulInstruction(inputLine, idx);
                     if (mulInstruction != null) {
                         sum += mulInstruction.getResult();
+                        idx += 4;
+                        continue;
                     }
                 }
 
@@ -81,6 +83,8 @@ public class Day03_RM extends AdventOfCodeSolver {
                     MulInstruction mulInstruction = parseMulInstruction(inputLine, idx);
                     if (mulInstruction != null) {
                         sum += mulInstruction.getResult();
+                        idx += 4;
+                        continue;
                     }
                 }
 
