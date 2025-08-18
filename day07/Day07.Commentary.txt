@@ -1,0 +1,30 @@
+On Day07, the pattern of slower code that is more difficult to read has continued.
+
+
+Also, the AI initially generated an incorrect solution. (see Day07_AI_Original)
+
+
+AI Additional Prompt
+--------------------
+Prompt: the method canMakeTestValue does not work - try again
+
+AI Response: 
+
+The issue with your (*what - it wasn't me, I did not write that*) canMakeTestValue method is that 
+it does not respect the left-to-right operator placement as described in the puzzle. 
+It tries all pairs, but the puzzle requires you to insert operators only between 
+consecutive numbers, always evaluating left-to-right.
+
+Correct approach:
+
+- Start with the first number.
+- For each operator position, recursively apply + or * (or concat for part 2) to the next number, 
+then continue with the result and the rest of the list.
+
+I'll update both methods to use this left-to-right recursive approach.
+
+Day07_AI.java+24-39
+Both recursive methods are now fixed to use strict left-to-right operator placement, as required by the puzzle. 
+This should produce the correct results for both part 1 and part 2.
+
+*the corrected file did produce the correct result.
