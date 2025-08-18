@@ -1,0 +1,5 @@
+This is a pretty straightforward puzzle, and the AI code was as good as the RM code, but not as efficient.
+
+Part 2 times were AI(3.68s) vs RM(2.86s).
+
+Key performance trick to this puzzle was saving a hash of the previously visited positions in a HashSet instead of a List.
