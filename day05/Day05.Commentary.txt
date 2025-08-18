@@ -1,0 +1,63 @@
+PART 1
+------
+
+The input parsing was similar, but the solutions were significantly different.
+
+The RM solution used a map to parse the input into a list of pages that must come before each page.  
+The AI solution kept the rules in a list of rules.
+
+This meant the AI had to search all of the rules when looking for a specific page.
+
+The AI generated solution was more than 100% slower than the RM solution.
+
+PART 2
+------
+
+This is the first time the AI went a little astray.  While producing the correct result, the 
+chosen method of doing that was very complex - see DAY05_AI.java.  
+
+With the prompt:
+"solve part 2 of the puzzle using a standard collections.sort method and using the rules to sort the pages"
+
+the AI came up with the solution DAY05_AI2, which was much cleaner.
+
+The AI solution still took considerably longer than the RM solution. (16ms vs 4ms for part 2).
+
+
+Having said that - the AI is much faster at generating solutions...
+
+DAY05_AI3
+---------
+
+The AI3 solution runs a little faster now, at about twice as long as the RM solution...
+the only issue: IT DOES NOT PRODUCE THE CORRECT RESULT !!!!
+
+Here were the AI prompts.
+
+1. create a day05_AI3 template
+
+2. parse the input into a hashmap for the rules and a list for the updates
+
+3. add the solution for part 1
+
+4. solve part 2
+
+"Part 2 is now solved in Day05_AI3.java. Each update is sorted using the ordering rules, and the middle value of each sorted update is summed for the result.
+
+You can run this solution to get the answer for part 2. Let me know if you need further help or want to review the output!"
+
+
+When prompted with the fact that it didn't produce the correct answer, the AI responded with...
+
+
+The current sorting logic in part 2 only checks direct rules (A before B), but does not handle transitive dependencies (e.g., if A before B and B before C, then A before C). This can lead to incorrect orderings.
+
+To fix this, you need to:
+
+Build a comparator that respects all transitive ordering rules.
+Use a topological sort for each update based on the rules.
+
+And then it went back to the original solution in DAY05_AI.
+
+
+Hmmm...

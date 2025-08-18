@@ -2,20 +2,45 @@ package aoc;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AdventOfCodeSolver {
-    protected List<String> inputLines;
+
+    private int inputSections = 1;
+    protected List<String> inputLines = new ArrayList<>();
+
+    /**
+     * Set the number of input sections (blank line delimited) in the input
+     * <br>
+     * NOTE: This method must be called before {@link #run()}.
+     * 
+     * @param inputSections the number of input sections
+     * @return this AdventOfCodeSolver instance for method chaining
+     */
+    public AdventOfCodeSolver setInputSections(int inputSections) {
+        this.inputSections = inputSections;
+        return this;
+    }
 
     private void readInput() {
+
+        int inputSection = 1;
+
         try {
             System.out.println("Paste your Advent of Code input and press Enter on a blank line to finish:");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            inputLines = new java.util.ArrayList<>();
+
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.trim().isEmpty())
-                    break;
+
+                if (line.trim().isEmpty()) {
+                    inputSection++;
+                    if (inputSection > inputSections) {
+                        break;
+                    }
+                }
+
                 inputLines.add(line);
             }
         } catch (Exception e) {
