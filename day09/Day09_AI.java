@@ -79,8 +79,71 @@ public class Day09_AI extends AdventOfCodeSolver {
 
     @Override
     public Object solvePart2() {
-        // ...solution for part 2...
-        return null;
+        // Build initial disk blocks: file IDs and free space
+        java.util.List<Integer> blocks = new java.util.ArrayList<>();
+        int fileId = 0;
+        int fIdx = 0, freeIdx = 0;
+        boolean fileTurn = true;
+        while (fIdx < fileLengths.size() || freeIdx < freeLengths.size()) {
+            if (fileTurn && fIdx < fileLengths.size()) {
+                for (int k = 0; k < fileLengths.get(fIdx); k++)
+                    blocks.add(fileId);
+                fileId++;
+                fIdx++;
+            } else if (!fileTurn && freeIdx < freeLengths.size()) {
+                for (int k = 0; k < freeLengths.get(freeIdx); k++)
+                    blocks.add(-1);
+                freeIdx++;
+            }
+            fileTurn = !fileTurn;
+        }
+
+        // Move whole files, highest file ID first
+        int maxFileId = fileId - 1;
+        for (int moveId = maxFileId; moveId >= 0; moveId--) {
+            // Find all blocks for this file
+            java.util.List<Integer> fileBlocks = new java.util.ArrayList<>();
+            for (int i = 0; i < blocks.size(); i++) {
+                if (blocks.get(i) == moveId)
+                    fileBlocks.add(i);
+            }
+            if (fileBlocks.isEmpty())
+                continue;
+            int fileLen = fileBlocks.size();
+            int fileStart = fileBlocks.get(0);
+            // Find leftmost span of contiguous free space (to the left of fileStart) that
+            // fits
+            int bestStart = -1;
+            int curLen = 0;
+            for (int i = 0; i < fileStart; i++) {
+                if (blocks.get(i) == -1) {
+                    if (curLen == 0)
+                        bestStart = i;
+                    curLen++;
+                    if (curLen == fileLen)
+                        break;
+                } else {
+                    curLen = 0;
+                    bestStart = -1;
+                }
+            }
+            if (curLen == fileLen && bestStart != -1) {
+                // Move file
+                for (int idx : fileBlocks)
+                    blocks.set(idx, -1);
+                for (int k = 0; k < fileLen; k++)
+                    blocks.set(bestStart + k, moveId);
+            }
+        }
+
+        // Calculate checksum
+        long checksum = 0;
+        for (int i = 0; i < blocks.size(); i++) {
+            int id = blocks.get(i);
+            if (id != -1)
+                checksum += (long) i * id;
+        }
+        return checksum;
     }
 
     public static void main(String[] args) {

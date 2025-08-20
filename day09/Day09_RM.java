@@ -165,6 +165,8 @@ public class Day09_RM extends AdventOfCodeSolver {
 
         copySpaces(inputDiskSpaces, diskSpaces);
 
+        int lastFileSpecId = Integer.MAX_VALUE;
+
         for (int i = diskSpaces.size() - 1; i >= 1; i--) {
 
             Space space = diskSpaces.get(i);
@@ -174,6 +176,14 @@ public class Day09_RM extends AdventOfCodeSolver {
             }
 
             FileSpec fileSpec = space.fileSpecs.get(0);
+
+            // If the fileSpec id is greater than the lastFileSpecId, then skip this area
+            // and
+            // do not try to move it to a lower space (because that has already been tried)
+            if (fileSpec.fileId >= lastFileSpecId) {
+                continue;
+            }
+            lastFileSpecId = fileSpec.fileId;
 
             // Determine if there is an empty space before this space
             // that has enough free space to move the file

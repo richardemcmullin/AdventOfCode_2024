@@ -1,0 +1,5 @@
+The AI generated solutions run significantly slower than the RM solution.
+
+Part 1: 9ms vs 170ms     AI solution is 17x slower
+Part 2: 91ms vs 1491ms   AI solution is 15x slower
+
