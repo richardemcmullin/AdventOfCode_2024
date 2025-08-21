@@ -1,0 +1,10 @@
+The AI was able to easily solve this puzzle, which was not a difficult puzzle
+
+The prompts aiding the development of the RM solution were appropriate and helpful
+
+There was a large difference in performance between the RM and AI solutions:
+
+Part 1: 7ms vs 33ms - the AI solution is 4x slower
+Part 2: 2ms vs 33ms - the AI solution is 16x slower !!???
+
+continues the pattern of the AI code being less efficient at solving the problem.
