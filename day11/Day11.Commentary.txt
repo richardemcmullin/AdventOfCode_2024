@@ -1,0 +1,79 @@
+General observations
+
+AI did not solve part 2 on the first try
+
+The AI code was slower than the RM code in solving the puzzle
+
+Part 1: 155ms vs 4ms  AI solution was 40x slower (but was not prompted to optimize)
+Part 2: 70ms vs 24ms  3x slower (and had been prompted to optimize the solution)
+
+---
+
+Here is the full diaglog:
+
+RM: Solve Part 1 in Day11 AI... followed by the part 1 text
+
+---
+
+AI:
+Part 1 for Day 11 AI is implemented: the code parses the input stones, 
+simulates 25 blinks according to the rules, and returns the final stone count.
+
+There is a minor visibility error in solvePart2()
+—the method should be public to match the base class. 
+
+Let me know if you want this fixed or if you want to proceed with testing part 1.
+
+---
+
+RM: fix it.
+
+---
+
+The AI could not fix the issue, so I resolved it manually.
+
+---
+
+The test worked, and produced the correct result, but inefficiently.
+
+---
+
+RM: Implement part 2... (pasted part 2 of the puzzle)
+
+---
+
+AI: Part 2 for Day 11 AI is now implemented. The code simulates 75 blinks using the same transformation rules 
+and returns the final stone count. You can run the solution to get the answer for your input.
+
+---
+
+RM: The solution ran out of Java heap space, what optimizations do you suggest for part 2.
+
+---
+
+AI: The current approach simulates every stone explicitly, 
+causing exponential growth and heap exhaustion. For part 2, 
+optimize by tracking only the count of stones by their digit-length 
+and value patterns, rather than storing every stone.
+
+Recommended optimizations:
+
+State Compression: Represent stones as a map from stone value (or digit pattern) to count, instead of a list of strings.
+Dynamic Programming: For each blink, update counts based on transformation rules, not explicit stone lists.
+Avoid Storing Actual Stones: Only store how many stones of each type exist at each step.
+
+Would you like me to refactor part 2 to use a map-based dynamic programming approach for efficient simulation?
+
+---
+
+RM: Yes
+
+---
+
+AI: Part 2 is now optimized using a map-based dynamic programming approach. 
+The code tracks stone counts by value, avoiding heap exhaustion and enabling 
+efficient simulation for 75 blinks. You can run the solution to get the answer for large inputs.
+
+---
+
+The AI code completed and produced the correct result.
