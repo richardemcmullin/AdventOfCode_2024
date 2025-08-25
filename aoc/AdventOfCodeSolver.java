@@ -66,7 +66,12 @@ public abstract class AdventOfCodeSolver {
     public void run() {
 
         readInput();
+
+        long startParsing = System.nanoTime();
         parseInput();
+        long endParsing = System.nanoTime();
+        long timeParsing = Math.round((endParsing - startParsing) / 1_000_000.0);
+        System.out.println("Time parsing input: " + timeParsing + " ms");
 
         long start1 = System.nanoTime();
         Object part1 = solvePart1();
