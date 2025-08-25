@@ -1,0 +1,24 @@
+The AI was unable to solve part 2 of the puzzle.
+
+After the third attempt, the AI posted this response...
+
+The previous approach for counting contiguous straight fence sides 
+was too complex and error-prone. For this puzzle, each straight 
+section of fence is simply a maximal contiguous run of boundary 
+edges in the same direction, not every individual edge.
+
+A correct and simpler approach is:
+
+For each region, for each direction, scan the grid and count the 
+number of maximal contiguous boundary runs (not every edge).
+
+For each cell in the region, if it is a boundary in a direction and 
+either it is the start of a run (previous cell is not a boundary 
+or not in region), count it as a new side.
+I will update part 2 to use this robust method.
+
+Part 2 has been updated to count maximal contiguous straight fence 
+sides for each region by scanning for runs in each direction, matching 
+the puzzle's definition of a "side." Please run the solution and verify 
+the output.
+

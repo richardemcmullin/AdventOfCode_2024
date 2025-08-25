@@ -7,26 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import aoc.AdventOfCodeSolver;
+import aoc.Direction;
 
 public class Day06_RM extends AdventOfCodeSolver {
 
     public static void main(String[] args) {
         new Day06_RM().run();
-    }
-
-    enum Direction {
-        UP(-1, 0),
-        RIGHT(0, 1),
-        DOWN(1, 0),
-        LEFT(0, -1);
-
-        final int rowMovement;
-        final int colMovement;
-
-        Direction(int rowMovement, int colMovement) {
-            this.rowMovement = rowMovement;
-            this.colMovement = colMovement;
-        }
     }
 
     class Guard {
@@ -78,8 +64,8 @@ public class Day06_RM extends AdventOfCodeSolver {
 
         boolean move(char[][] map) {
 
-            int newRow = row + dir.rowMovement;
-            int newCol = col + dir.colMovement;
+            int newRow = row + dir.dRow;
+            int newCol = col + dir.dCol;
 
             while (true) {
                 // Check if out of bounds
@@ -94,8 +80,8 @@ public class Day06_RM extends AdventOfCodeSolver {
                     turnRight();
 
                     // try to move in the new direction
-                    newRow = row + dir.rowMovement;
-                    newCol = col + dir.colMovement;
+                    newRow = row + dir.dRow;
+                    newCol = col + dir.dCol;
                     continue;
                 }
 
